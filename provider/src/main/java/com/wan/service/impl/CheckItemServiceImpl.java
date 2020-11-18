@@ -20,9 +20,9 @@ public class CheckItemServiceImpl implements CheckItemService {
         System.out.println("get ping");
     }
 
-    public void test2(TCheckitem tCheckitem) {
-        System.out.println("get item:" + tCheckitem.toString());
-        tCheckitemMapper.insert(tCheckitem);
+    public int add(TCheckitem tCheckitem) {
+        System.out.println("add item:" + tCheckitem.toString());
+        return tCheckitemMapper.insert(tCheckitem);
     }
 
 }

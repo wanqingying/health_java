@@ -6,5 +6,5 @@ public interface CheckItemService {
 
     public void test();
 
-    public void test2(TCheckitem tCheckitem);
+    public int add(TCheckitem tCheckitem);
 }
