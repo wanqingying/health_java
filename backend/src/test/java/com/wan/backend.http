@@ -1,0 +1,21 @@
+
+### Send POST request with json body
+POST http://localhost:88/checks/test?ux=67
+Content-Type: application/json
+
+{
+  "name": "xiaoma",
+  "value": "content"
+}
+
+### Send POST request with json body
+POST http://localhost:88/checks/add?ux=67
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+
+

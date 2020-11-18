@@ -1,1 +1,5 @@
 .idea
+/backend/target/
+/common/target/
+/interface/target/
+/provider/target/
