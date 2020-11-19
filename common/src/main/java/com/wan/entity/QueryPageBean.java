@@ -6,31 +6,40 @@ import java.io.Serializable;
  * 封装查询条件
  */
 public class QueryPageBean implements Serializable {
-    private Integer currentPage;//页码
-    private Integer pageSize;//每页记录数
-    private String queryString;//查询条件
+    private Integer current;//页码
+    private Integer size;//每页记录数
+    private String search;//查询条件
 
-    public Integer getCurrentPage() {
-        return currentPage;
+    public Integer getCurrent() {
+        return current;
     }
 
-    public void setCurrentPage(Integer currentPage) {
-        this.currentPage = currentPage;
+    public void setCurrent(Integer current) {
+        this.current = current;
     }
 
-    public Integer getPageSize() {
-        return pageSize;
+    public Integer getSize() {
+        return size;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 
-    public String getQueryString() {
-        return queryString;
+    public String getSearch() {
+        return search;
     }
 
-    public void setQueryString(String queryString) {
-        this.queryString = queryString;
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    @Override
+    public String toString() {
+        return "QueryPageBean{" +
+                "current=" + current +
+                ", size=" + size +
+                ", search='" + search + '\'' +
+                '}';
     }
 }

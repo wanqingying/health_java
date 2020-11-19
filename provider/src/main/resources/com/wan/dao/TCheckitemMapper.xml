@@ -141,6 +141,13 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <select id="findByPage" resultMap="BaseResultMap">
+    <select id="findByPage" resultMap="BaseResultMap" parameterType="String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_checkitem
+        <if test="_parameter != null and _parameter != ''">
+            where code like concat('%',#{search},'%')
+            or name like concat('%',#{search},'%')
+        </if>
     </select>
 </mapper>

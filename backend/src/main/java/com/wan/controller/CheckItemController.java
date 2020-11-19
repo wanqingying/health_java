@@ -3,6 +3,8 @@ package com.wan.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.wan.constant.MessageConstant;
+import com.wan.entity.PageResult;
+import com.wan.entity.QueryPageBean;
 import com.wan.entity.Result;
 import com.wan.pojo.TCheckitem;
 import com.wan.service.CheckItemService;
@@ -32,5 +34,11 @@ public class CheckItemController {
         } catch (Exception e) {
             return new Result(false, MessageConstant.ADD_CHECKITEM_FAIL, 0);
         }
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    public PageResult findItemListByPage(@RequestBody QueryPageBean queryPageBean) {
+        System.out.println("list:" + queryPageBean.getSearch());
+        return checkItemService.findByPage(queryPageBean);
     }
 }

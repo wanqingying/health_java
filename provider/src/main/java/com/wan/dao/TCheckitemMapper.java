@@ -1,5 +1,6 @@
 package com.wan.dao;
 
+import com.github.pagehelper.Page;
 import com.wan.pojo.TCheckitem;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public interface TCheckitemMapper {
 
     TCheckitem selectByPrimaryKey(Integer id);
 
-    ArrayList<TCheckitem> findByPage();
+    Page<TCheckitem> findByPage(String search);
 
     int updateByPrimaryKeySelective(TCheckitem record);
 
