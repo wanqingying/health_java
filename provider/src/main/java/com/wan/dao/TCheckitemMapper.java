@@ -16,7 +16,11 @@ public interface TCheckitemMapper {
 
     Page<TCheckitem> findByPage(String search);
 
+    Long findByCountGroup(Integer id);
+
     int updateByPrimaryKeySelective(TCheckitem record);
 
     int updateByPrimaryKey(TCheckitem record);
+
+    ArrayList<TCheckitem> findAll();
 }

@@ -13,11 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // 开启事务需要指定接口类
 @Service(interfaceClass = com.wan.service.CheckItemService.class)
 @Transactional
-public class CheckItemServiceImpl implements CheckItemService {
+public class CheckItemImpl implements CheckItemService {
 
     @Autowired
     private TCheckitemMapper tCheckitemMapper;
@@ -40,5 +41,27 @@ public class CheckItemServiceImpl implements CheckItemService {
         Page<TCheckitem> page = tCheckitemMapper.findByPage(search);
         return new PageResult(page.getTotal(), page.getResult());
     }
+
+    @Override
+    public boolean deleteById(Integer id) {
+        Long count = tCheckitemMapper.findByCountGroup(id);
+        if (count > 0) {
+            return false;
+        }
+        int del = tCheckitemMapper.deleteByPrimaryKey(id);
+        return del > 0;
+    }
+
+    @Override
+    public boolean update(TCheckitem tCheckitem) {
+        int res = tCheckitemMapper.updateByPrimaryKey(tCheckitem);
+        return res > 0;
+    }
+
+    @Override
+    public List<TCheckitem> findAll() {
+        return tCheckitemMapper.findAll();
+    }
+
 
 }
